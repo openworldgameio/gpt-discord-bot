@@ -14,6 +14,8 @@ from src.constants import (
     SECONDS_DELAY_RECEIVING_MSG,
     AVAILABLE_MODELS,
     DEFAULT_MODEL,
+    ASSISTANT_ID,
+    THREAD_ID
 )
 import asyncio
 from src.utils import (
