@@ -15,16 +15,19 @@ CONFIG: Config = dacite.from_dict(
     Config, yaml.safe_load(open(os.path.join(SCRIPT_DIR, "config.yaml"), "r"))
 )
 
-BOT_NAME = CONFIG.name
-BOT_INSTRUCTIONS = CONFIG.instructions
+#BOT_NAME = CONFIG.name
+#BOT_INSTRUCTIONS = CONFIG.instructions
 EXAMPLE_CONVOS = CONFIG.example_conversations
+BOT_NAME = os.environ["DISCORD_BOT_NAME"]
+BOT_INSTRUCTIONS = os.environ["DISCORD_BOT_INSTRUCTIONS"]
+#EXAMPLE_CONVOS = os.environ["DISCORD_BOT_EXAMPLE_CONVOS"]
 
 DISCORD_BOT_TOKEN = os.environ["DISCORD_BOT_TOKEN"]
 DISCORD_CLIENT_ID = os.environ["DISCORD_CLIENT_ID"]
 OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
 DEFAULT_MODEL = os.environ["DEFAULT_MODEL"]
 ASSISTANT_ID = os.environ["ASSISTANT_ID"]
-THREAD_ID = os.environ["THREAD_ID"]
+#THREAD_ID = os.environ["THREAD_ID"]
 
 ALLOWED_SERVER_IDS: List[int] = []
 server_ids = os.environ["ALLOWED_SERVER_IDS"].split(",")
