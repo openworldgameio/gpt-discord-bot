@@ -6,12 +6,13 @@ COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 COPY . /src
 
-## WARNING: This docker file copies your .env file with API keys to the docker container. 
+## WARNING: This docker file copies your .env file with API keys to the docker container.
 ##          This works, but should be replace with a proper Google Secret Manager
-COPY .env /src/.env
+COPY .env-dnd-party /src/.env-dnd-party
+COPY .env-ai-assistant /src/.env-ai-assistant
 COPY start_gpt_discord_bot.sh /src/start_gpt_discord_bot.sh
 COPY start_gpt_discord_bot_on_cloudrun.sh /src/start_gpt_discord_bot_on_cloudrun.sh
 
 COPY src/webserver.py /src/webserver.py
 
-CMD ["/bin/bash", "/src/start_gpt_discord_bot.sh"]
+CMD ["/src/start_gpt_discord_bot.sh", "ai-assistant"]

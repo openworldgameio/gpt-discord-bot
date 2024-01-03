@@ -1,5 +1,5 @@
 #!/bin/bash
-## This script is provided as an example for how to build, deploy and start 
+## This script is provided as an example for how to build, deploy and start
 ## this Discord Bot on Google "Cloud Run"
 
 ## Get the current date and time and region to run it on...
@@ -23,7 +23,7 @@ GCP_APP_URL=$(gcloud run services list --platform=managed --region=${GCP_REGION}
   --filter="status.address.url ~ ${GCP_APP_NAME}-" \
   --format="value(status.address.url)")
 ## Setup a scheduler to call the URL every minute, to keep it alive
-gcloud scheduler jobs create http GET-gpt-discord-bot \
-  --schedule="* * * * *" \
+gcloud scheduler jobs create http GET-gpt-discord-bot-ai-assistant \
+  --schedule="1 * * * *" \
   --uri="${GCP_APP_URL}" \
   --http-method GET | tee -a $log_file
