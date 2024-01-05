@@ -15,4 +15,4 @@ COPY start_gpt_discord_bot_on_cloudrun.sh /src/start_gpt_discord_bot_on_cloudrun
 
 COPY src/webserver.py /src/webserver.py
 
-CMD ["/src/start_gpt_discord_bot.sh", "dnd-party"]
+CMD ["/src/start_gpt_discord_bot.sh", "ai-assistant"]

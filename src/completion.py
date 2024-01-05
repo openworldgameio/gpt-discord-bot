@@ -44,6 +44,7 @@ client = AsyncOpenAI()
 async def generate_completion_response(
     messages: List[Message], user: str, thread_config: ThreadConfig
 ) -> CompletionData:
+    logger.debug(f"========= completion.py: Messages: {messages}")
     try:
         prompt = Prompt(
             header=Message(

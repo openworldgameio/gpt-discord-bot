@@ -1,13 +1,18 @@
 #!/bin/sh
 
+eval $( cat .env-dnd-party)
+
 # Check if a command-line argument is provided
 if [ -z "$1" ]; then
-    echo "Error: Please provide a configuration name (e.g., dnd-party, ai-assistant)"
-    exit 1
+    #echo "Error: Please provide a configuration name (e.g., dnd-party, ai-assistant)"
+    #exit 1
+    export bot_type="dnd-party"
+else
+    bot_type=${1}
 fi
 
 # Get the filename from the argument
-env_file=".env-${1}"
+env_file=".env-${bot_type}"
 
 # Check if the specified .env file exists
 if [ ! -f "$env_file" ]; then

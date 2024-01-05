@@ -3,7 +3,10 @@ from typing import Literal, Optional, Union
 
 import discord
 from discord import Message as DiscordMessage, app_commands
+
 import logging
+logging.basicConfig(level=logging.DEBUG)
+
 from src.base import Message, Conversation, ThreadConfig
 from src.constants import (
     BOT_INVITE_URL,
@@ -56,6 +59,7 @@ async def on_ready():
                 messages.append(Message(user=client.user.name, text=m.text))
             else:
                 messages.append(m)
+        logger.debug(f"================ main.py: Messages: {messages}")
         completion.MY_BOT_EXAMPLE_CONVOS.append(Conversation(messages=messages))
     await tree.sync()
 
