@@ -2,7 +2,7 @@
 
 # Check if a command-line argument is provided
 if [ -z "$1" ]; then
-    echo "Error: Please provide a configuration name (e.g., dnd-party, ai-assistant)"
+    echo "Error: Please provide a configuration name (e.g. ai-assistant, python-expert)"
     exit 1
 fi
 
