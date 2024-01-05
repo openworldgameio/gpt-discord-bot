@@ -1,4 +1,3 @@
-
 ## This script is provided as an example for how to start
 ## this Discord Bot locally
 
